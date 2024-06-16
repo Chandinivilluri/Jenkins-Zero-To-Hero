@@ -17,5 +17,17 @@ pipeline {
         sh 'node --version'
       }
     }
+    stage('Run HelloWorld.js') {
+      agent any
+      steps {
+        // Checkout the code from the GitHub repository
+        git 'https://github.com/Chandinivilluri/Zero-to-Hero-Jenkins.git'
+
+        // Run HelloWorld.js using Node.js
+        dir('path/to/Zero-to-Hero-Jenkins') {
+          sh 'node HelloWorld.js'
+        }
+      }
+    }
   }
 }
